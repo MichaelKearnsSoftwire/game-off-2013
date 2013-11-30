@@ -3,13 +3,13 @@ define('facility', function() {
 
     return function(facilityTemplate) {
         var timeBuilt = 0;
-        var isPowered = false;
+        this.isPowered = false;
 
         this.name = facilityTemplate.name;
         this.landCost = facilityTemplate.landCost;
 
         this.energyDelta = function() {
-            return isPowered ? this.baseEnergyDelta() : 0;
+            return this.isPowered ? this.baseEnergyDelta() : 0;
         };
 
         this.baseEnergyDelta = function() {
@@ -17,11 +17,11 @@ define('facility', function() {
         };
 
         this.pollutionDelta = function() {
-            return isPowered ? this.getDeltas().pollution : 0;
+            return this.isPowered ? this.getDeltas().pollution : 0;
         };
 
         this.foodDelta = function() {
-            return isPowered ? this.getDeltas().food : 0;
+            return this.isPowered ? this.getDeltas().food : 0;
         };
 
         this.getDeltas = function() {
@@ -36,10 +36,10 @@ define('facility', function() {
         this.update = function(remainingPower) {
             if (remainingPower >= -this.baseEnergyDelta()) {
                 timeBuilt++;
-                isPowered = true;
+                this.isPowered = true;
                 return remainingPower + this.baseEnergyDelta();
             } else {
-                isPowered = false;
+                this.isPowered = false;
                 return remainingPower;
             }
         };

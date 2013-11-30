@@ -51,7 +51,7 @@ require(['jquery', 'game', 'gameStateUpdater', 'grid', 'globe', 'terrain', 'faci
                     game.update();
                     refreshDisplay();
                 }
-            }, 100);
+            }, 1000);
 
             function refreshDisplay() {
                 document.getElementById('tick').value = game.state.tick;
