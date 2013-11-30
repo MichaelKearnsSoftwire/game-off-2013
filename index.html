@@ -52,49 +52,52 @@
             stroke-width: 2px;
         }
 
+        table th {
+            text-align: center;
+        }
+
+        table th, table td {
+            padding: 0.5em;
+            font-size: 0.9em;
+        }
+
+        #map, #constructedFacilities {
+            clear: both;
+        }
     </style>
 </head>
 <body>
     <div id="game" class="container">
         <h2>World map</h2>
-        <div class="col-md-4">
-            <p>
-                <label for="tick" class="col-md-6">Tick:</label>
-                <input type="text" id="tick" readonly="true" />
-            </p>
-            <p>
-                <label for="seaLevel" class="col-md-6">Sea level (m):</label>
-                <input type="text" id="seaLevel" readonly="true" />
-            </p>
-            <p>
-                <label for="buildableLand" class="col-md-6">Buildable land (km&sup2;):</label>
-                <input type="text" id="buildableLand" readonly="true" />
-            </p>
-            <p>
-                <label for="population" class="col-md-6">Population:</label>
-                <input type="text" id="population" readonly="true" />
-            </p>
-            <p>
-                <label for="food" class="col-md-6">Food supplies:</label>
-                <input type="text" id="food" readonly="true" />
-            </p>
-            <p>
-                <label for="pollution" class="col-md-6">Pollution level:</label>
-                <input type="text" id="pollution" readonly="true" />
-            </p>
+        <div class="col-md-4 form-inline">
+                <label for="tick" class="col-md-6">Tick:
+                <input type="text" id="tick" readonly="true" /></label>
+                <label for="seaLevel" class="col-md-6">Sea level (m):
+                <input type="text" id="seaLevel" readonly="true" /></label>
+                <label for="buildableLand" class="col-md-6">Buildable land (km&sup2;):
+                <input type="text" id="buildableLand" readonly="true" /></label>
+                <label for="population" class="col-md-6">Population:
+                <input type="text" id="population" readonly="true" /></label>
+                <label for="food" class="col-md-6">Food supplies:
+                <input type="text" id="food" readonly="true" /></label>
+                <label for="pollution" class="col-md-6">Pollution level:
+                <input type="text" id="pollution" readonly="true" /></label>
+        </div>
+        <div class="col-md-6">
+            <table id="availableFacilities">
+                <tr>
+                    <th rowspan="2">Type</th>
+                    <th rowspan="2">Space<br />required</th>
+                    <th colspan="3">Annual output</th>
+                </tr>
+                <tr>
+                    <th>Energy</th>
+                    <th>Food</th>
+                    <th>Pollution</th>
+                </tr>
+            </table>
         </div>
         <div id="map"></div>
-        <br/>
-        <table id="availableFacilities">
-            <tr>
-                <th>Name</th>
-                <th>Space Required</th>
-                <th>Annual Energy Output</th>
-                <th>Annual Food Output</th>
-                <th>Annual Pollution Output</th>
-            </tr>
-        </table>
-        <br/>
         <table id="constructedFacilities">
             <tr>
                 <th>Name</th>
