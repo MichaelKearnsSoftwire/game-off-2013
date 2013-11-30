@@ -3,21 +3,18 @@ define('globe', ['jquery', 'd3'], function ($, d3) {
 
     return {
         create: function (parent, cells) {
-            var width = 960,
-                height = 500;
-
             var origin = [0, -5];
 
             var projection = d3.geo.orthographic()
                 .rotate(origin)
-                .scale(240)
+                .scale((parent.clientHeight / 2) - 10)
                 .clipAngle(90);
 
             var path = d3.geo.path().projection(projection);
 
             var svg = d3.select(parent).append('svg')
-                .attr('width', width)
-                .attr('height', height);
+                .attr('width', parent.clientWidth)
+                .attr('height', parent.clientHeight);
 
             var polygons = svg.selectAll('path')
                 .data(cells)
